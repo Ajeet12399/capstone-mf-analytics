@@ -58,9 +58,6 @@ def analyze_datasets(all_data):
     print("DATASET ANALYSIS")
     print("=" * 60)
 
-    # --------------------------------------------------
-    # 1. FUND MASTER ANALYSIS
-    # --------------------------------------------------
 
     fund_master = all_data["01_fund_master"]
 
@@ -82,9 +79,6 @@ def analyze_datasets(all_data):
     print(fund_master["sebi_category_code"].unique())
 
 
-    # --------------------------------------------------
-    # 2. FUND MASTER vs NAV HISTORY
-    # --------------------------------------------------
 
     print("\n" + "=" * 60)
     print("FUND MASTER vs NAV HISTORY")
@@ -112,9 +106,6 @@ def analyze_datasets(all_data):
     )
 
 
-    # --------------------------------------------------
-    # 3. NAV HISTORY COVERAGE
-    # --------------------------------------------------
 
     print("\n" + "=" * 60)
     print("NAV HISTORY COVERAGE")
@@ -139,9 +130,6 @@ def analyze_datasets(all_data):
         print(low_history_schemes)
 
 
-    # --------------------------------------------------
-    # 4. INVESTOR TRANSACTION VALIDATION
-    # --------------------------------------------------
 
     print("\n" + "=" * 60)
     print("INVESTOR TRANSACTION VALIDATION")
@@ -162,16 +150,12 @@ def analyze_datasets(all_data):
         print("All transaction scheme codes exist in fund_master.")
 
 
-# ======================================================
-# MAIN PROGRAM
-# ======================================================
 
 if __name__ == "__main__":
 
-    # Load datasets
+    
     all_data = load_and_inspect_csvs()
 
-    # Summary
     print("\n" + "=" * 60)
     print("DATA INGESTION SUMMARY")
     print("=" * 60)
@@ -179,6 +163,5 @@ if __name__ == "__main__":
     print(f"Total datasets loaded: {len(all_data)}")
     print(f"Dataset names: {list(all_data.keys())}")
 
-    # Run additional analysis only if datasets loaded
     if all_data:
         analyze_datasets(all_data)
